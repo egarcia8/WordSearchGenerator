@@ -6,7 +6,7 @@
 <div class="container">
     <h2 class="text-center">Word Search Generator</h2>
     <h5 class="mt-3">Complete the form below to create your own word search.</h5>
-    <form id="createForm">
+    <form id="createWordSearchForm">
         <div class="form-group">
             <div class="row">
                 <div class="mt-5 form-outline w-25">
@@ -19,29 +19,32 @@
                 </div>
             </div>
            <div class="row">
-                <div class="mt-5 form-outline w-25">
+                <div class="mt-5 form-outline w-25" id="wordInput">
                     <label for="userWords"><b>Word for Word List:</b></label>
                     <input type="text" class="form-control" id="userWords" name="userWords" placeholder="Enter word">
+                    
+                </div>
+                <div>
                     <span class="help-block">Please enter a word for your list that does not exceed the length of your grid.</span>
                 </div>
                 <div class="col-md mt-5">
-                <button type="submit" class="btn btn-outline-success w-25 mt-4" onclick="addToWordList()">Add Word to List</button>
+                <button type="button" class="btn btn-outline-success w-25 mt-4" onclick="addToWordList()">Add Word to List</button>
                 </div>
            </div>
           <div class="row">
             <div class="col-md mt-5">
                 <label for="wordList"><b>Word List:</b></label>
-                <div class="list-group" id="wordList">
-                   <ul class="list-unstyled">
-                       @*list dynamically populated with js*@
-                   </ul> 
+                <div>
+                    <ul class="list-unstyled" id="wordList">
+                        @*list dynamically populated with js*@
+                    </ul> 
                 </div>
             </div>
           </div>
           <div class="row">
             <div class="text-center col-xs-2 mt-5">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" class="btn btn-outline-dark">Clear</button>
+                <button type="submit" class="btn btn-primary" disabled id="submitFormButton">Submit</button>
+                <button type="reset" class="btn btn-outline-dark" onclick="resetForm()">Clear</button>
             </div>
           </div>  
         </div>
@@ -55,20 +58,4 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
     }
-@*<script type="text/javascript" src="~/js/site.js"></script>*@
-@*<h3>Word Search Generator</h3>
-<form id="userInputForm">
-    <div class="form-group">
-        <div class="col-xs-2 row">
-        <label for="userGrid" class="col-form-label"><b>Please enter the size of your grid using a numbers 5-20(e.g. 5=5x5 grid, 10=10x10 grid, etc.)</b></label>
-        <input type="text" class="form-control" id="gridSize" name="gridSize" />
-        </div>
-        <div class="col-xs-2 row">
-        <label for="userWords" class="col-form-label"><b>Enter a word for your list that does not exceed the length of your grid.</b></label>
-        <input type="text" class="form-control" id="wordList" name="wordList" />
-        </div>
-        <div>
-            <button type="button" class="btn btn-primary mt-3" onclick="onEditRating()">Submit</button>
-        </div>
-    </div>
-</form>*@
+

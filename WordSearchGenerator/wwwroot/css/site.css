@@ -17,7 +17,25 @@ body {
   margin-bottom: 60px;
 }
 
-#createForm label.error {
+#createWordSearchForm label.error {
+    padding-left: 5px;
+    padding-bottom: 1px;
+    font-weight: 600;
+    color: crimson;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+#userWords-error {
+    padding-left: 5px;
+    padding-bottom: 1px;
+    font-weight: 600;
+    color: crimson;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+p {
     padding-left: 5px;
     padding-bottom: 1px;
     font-weight: 600;
