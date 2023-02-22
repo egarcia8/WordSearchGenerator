@@ -29,12 +29,12 @@ $(document).ready(function () {
         }
     });
 
-    window.addToWordList = function() {
+    $('#addToWordListButton').click(function () {
         const isValid = $('#createWordSearchForm').valid();
         const word = $('#userWords').val();
         const size = $('#gridSize').val();
         if (isValid) {
-            
+
             const wordLength = $('#userWords').val().length;
             if (wordLength < size) {
                 $('#wordList').append('<li>' + word + '</li>');
@@ -48,8 +48,32 @@ $(document).ready(function () {
                 $('<p>' + message + '</p>').appendTo('#wordInput');
             }
         }
-    }
+    });
 
-   
+    
+    $('#submitFormButton').click(function () {
+
+        const tempWordList = [];
+        const tempGridSize = $("#gridSize").val();
+        $('#wordList li').each(function () {
+            tempWordList.push($(this).text());
+        });
+
+        const payload = {
+            gridSize: tempGridSize,
+            wordList: tempWordList
+        }
+
+        console.log(payload)
+    });
+
+    $('#resetButton').click(function () {
+        $('#gridSize').prop('disabled', false);
+        $('#submitFormButton').prop('disabled', true);
+        $('#wordList').empty();
+        $('#wordInput p').empty();
+    });
+
+    
 });
 
