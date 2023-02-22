@@ -25,6 +25,9 @@ $(document).ready(function () {
             gridSize: {
                 required: "Please enter a size.",
                 range: "Please enter a number from 5-20."
+            },
+            userWords: {
+                required:"Please enter a word."
             }
         }
     });
@@ -72,6 +75,7 @@ $(document).ready(function () {
         $('#submitFormButton').prop('disabled', true);
         $('#wordList').empty();
         $('#wordInput p').empty();
+        $('#createWordSearchForm label.error ').empty();
     });
 
     
