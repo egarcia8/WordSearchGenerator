@@ -45,9 +45,9 @@ p {
 }
  /********Grid CSS*************/
 
-table {
+/*table {
     border: 1px solid black;
-}
+}*/
 
 td {
     border: 1px solid black;
@@ -58,4 +58,8 @@ td {
     text-align: center;
     display: inline-block;
     white-space: nowrap;
+}
+
+#wordList td {
+    border: none;
 }
