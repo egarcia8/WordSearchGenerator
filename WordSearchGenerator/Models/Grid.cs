@@ -2,11 +2,11 @@
 {
     public class Grid
     {
-        public int sizeGrid { get; set; }
-        public int MyProperty { get; set; }
-        public List<string> wordList { get; set; }
-        public List<string> wordFit { get; set; }
-        public List<string> wordNoFit { get; set; }
+        public int GridSize { get; set; }        
+        public List<string> WordList { get; set; } = default!;
+        public List<string> WordFit { get; set; } = default!;
+        public List<string> WordNoFit { get; set; } = default!;
+        public List<List<string>> MasterCoordinates { get; set; }
 
     }
 }

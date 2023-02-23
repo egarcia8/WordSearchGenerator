@@ -57,7 +57,7 @@ $(document).ready(function () {
     $('#submitFormButton').click(function () {
 
         const tempWordList = [];
-        const tempGridSize = $("#gridSize").val();
+        const tempGridSize = $('#gridSize').val();
         $('#wordList li').each(function () {
             tempWordList.push($(this).text());
         });
@@ -66,8 +66,15 @@ $(document).ready(function () {
             gridSize: tempGridSize,
             wordList: tempWordList
         }
-
-        console.log(payload)
+        
+        $.ajax({
+            type: "POST",
+            url: "/api/userinput",            
+            data: payload, 
+            success: function () {
+                window.location.href = "/grid";
+            }
+        });        
     });
 
     $('#resetButton').click(function () {
@@ -77,10 +84,6 @@ $(document).ready(function () {
         $('#wordInput p').empty();
         $('#createWordSearchForm label.error ').empty();
     });
-
-/***********************Grid JS***********************/
-
-
 
 });
 

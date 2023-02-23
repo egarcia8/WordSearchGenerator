@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Text.Json;
 using WordSearchGenerator.Models;
 
 namespace WordSearchGenerator.Controllers
@@ -14,13 +15,20 @@ namespace WordSearchGenerator.Controllers
         }
 
         public IActionResult Index()
-        {
+        {           
             return View();
-        }
+        }        
 
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        [HttpPost("api/userinput")]
+        public IActionResult UserInput(UserInput userInput) 
+        {
+            TempData["UserInput"] = JsonSerializer.Serialize(userInput);
+            return Ok();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
