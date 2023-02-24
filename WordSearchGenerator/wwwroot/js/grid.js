@@ -47,8 +47,10 @@ $(document).ready(function () {
         wordNoFitList.forEach(function (word) {
             $('#wordNoFit').append('<li>' + word + '</li>')
         });
-        if ($('wordNoFit ul li').length < 1) {
-            $('#noFitList').empty();
+
+        var count = $('#wordNoFit').children().length;
+        if (count < 1) {
+            $('#noFitList').remove();
         }
     }
 
