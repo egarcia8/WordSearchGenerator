@@ -39,7 +39,7 @@ $(document).ready(function () {
         if (isValid) {
 
             const wordLength = $('#userWords').val().length;
-            if (wordLength < size) {
+            if (wordLength <= size) {
                 $('#wordList').append('<li>' + word + '</li>');
                 $('#userWords').val("");
                 $('#gridSize').prop('disabled', true);
