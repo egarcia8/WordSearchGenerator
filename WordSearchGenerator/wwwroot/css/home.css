@@ -43,6 +43,18 @@ p {
     margin-bottom: 5px;
     position: relative;
 }
+
+#deleteWord {
+    color: white;
+    margin-left: 2px;
+    background-color: white;
+    border: none;
+}
+
+#deleteWord:hover {
+    color: crimson;
+    font-weight: 700;
+}
  /********Grid CSS*************/
 
 /*table {

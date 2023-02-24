@@ -40,7 +40,7 @@ $(document).ready(function () {
 
             const wordLength = $('#userWords').val().length;
             if (wordLength <= size) {
-                $('#wordList').append('<li>' + word + '</li>');
+                $('#wordList').append('<li>' + word + '<button type="button"id="deleteWord">X</button></li>');
                 $('#userWords').val("");
                 $('#gridSize').prop('disabled', true);
                 $('#submitFormButton').prop('disabled', false);
@@ -51,6 +51,22 @@ $(document).ready(function () {
                 $('<p>' + message + '</p>').appendTo('#wordInput');
             }
         }
+    });
+
+    //$("#deleteWord").click(function (e) {
+
+    //    $(e).parent().remove();
+    //});
+
+    $(document).on('click', "#deleteWord", function (e) {
+        var entry = $(this).parent();
+        entry.remove();  //remove entry from list
+
+        var count = $('#wordList').children().length;
+        if (count < 1) {
+            $('#submitFormButton').prop('disabled', true);
+        }
+
     });
 
     
