@@ -49,11 +49,6 @@ $(document).ready(function () {
         }
     });
 
-    //$("#deleteWord").click(function (e) {
-
-    //    $(e).parent().remove();
-    //});
-
     $(document).on('click', "#deleteWordButton", function (e) {
         var entry = $(this).parent();
         entry.remove();  //remove entry from list

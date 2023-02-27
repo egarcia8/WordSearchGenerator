@@ -8,14 +8,14 @@ $(document).ready(function () {
         }
         $.ajax({
             type: 'POST',
-            url: '/GetPartial',            
+            url: '/GetPartial',
             contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(payload),  
-            success: function(result) {
-                $('#partial')
+            data: JSON.stringify(payload),
+            success: function (result) {
+                $('#partialGridView').html(response)
             }
-        });  
-    })
+        });
+    });
 
     $('#goBackButton').click(function () {
         window.location.href = '/Home';

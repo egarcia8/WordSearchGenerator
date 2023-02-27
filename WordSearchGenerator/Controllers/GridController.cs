@@ -34,7 +34,7 @@ namespace WordSearchGenerator.Controllers
         /// <returns></returns>
         [HttpPost("GetPartial")]
         //[FromBody] attribute used to specify that the value should be read from the body of the request
-        public ActionResult GenerateGrid([FromBody] UserInput userInput)
+        public ActionResult RegeneratePartial([FromBody] UserInput userInput)
         {
             var tempGrid = CreateGrid(userInput.Gridsize, userInput.WordList);
             return PartialView("_PartialGridView", tempGrid);

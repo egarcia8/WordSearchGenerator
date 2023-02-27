@@ -1,7 +1,7 @@
 ﻿@model WordSearchGenerator.Models.Grid
 
 
-<div class="flex-container">
+<div class="container">
     <div class="row">
         <table class="col" id="grid">
             @foreach (var row in @Model.MasterCoordinates)
@@ -26,15 +26,12 @@
         </div>
     </div>
 </div>
-
-
-
 @if(Model.WordNoFit.Count > 0) 
 {
     <div class="container">
-        <div class="row mt-3">
+        <div class="row mt-5">
             <div class="col-md-auto">
-                <h5>These words did not fit in your puzzle:</h5>
+                <h5 class="text-center">These words did not fit in your puzzle:</h5>
                 <table id="noFitList">
                     <tr>
                         <td>
@@ -45,10 +42,4 @@
             </div>
         </div>
     </div>
-    
-    
-    
-    
-    
-    
 }
