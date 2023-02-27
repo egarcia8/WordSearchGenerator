@@ -1,16 +1,14 @@
-html {
-  font-size: 14px;
-}
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    font-size: 16px;
 }
 
 body {
@@ -51,9 +49,10 @@ p {
 }
  /********Grid CSS*************/
 
-/*table {
-    border: 1px solid black;
-}*/
+
+#gridContainer {
+    min-width: 1200px;
+}
 
 td {
     border: 1px solid black;
@@ -68,4 +67,5 @@ td {
 
 #wordList td {
     border: none;
+    
 }
