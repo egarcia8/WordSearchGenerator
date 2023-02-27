@@ -1,8 +1,4 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-
+﻿
 $(document).ready(function () {
     
     jQuery.validator.addMethod('lettersonly', function (value, element) {
@@ -40,7 +36,7 @@ $(document).ready(function () {
 
             const wordLength = $('#userWords').val().length;
             if (wordLength <= size) {
-                $('#wordList').append('<li>' + word + '<button type="button"id="deleteWord">X</button></li>');
+                $('#wordList').append('<li>' + word + '<button type="button" class="btn btn-outline-danger btn-sm" id="deleteWordButton">Delete</button></li>');
                 $('#userWords').val("");
                 $('#gridSize').prop('disabled', true);
                 $('#submitFormButton').prop('disabled', false);
@@ -58,7 +54,7 @@ $(document).ready(function () {
     //    $(e).parent().remove();
     //});
 
-    $(document).on('click', "#deleteWord", function (e) {
+    $(document).on('click', "#deleteWordButton", function (e) {
         var entry = $(this).parent();
         entry.remove();  //remove entry from list
 
