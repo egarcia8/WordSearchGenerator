@@ -36,7 +36,7 @@ $(document).ready(function () {
 
             const wordLength = $('#userWords').val().length;
             if (wordLength <= size) {
-                $('#wordList').append('<li>' + word + '<button type="button" class="btn btn-outline-danger btn-sm" id="deleteWordButton">Delete</button></li>');
+                $('#wordList').append('<li><span id="wordSpan">' + word + '</span><button type="button" class="btn btn-outline-danger btn-sm mb-2 mt-2" id="deleteWordButton">X</button></li>');
                 $('#userWords').val("");
                 $('#gridSize').prop('disabled', true);
                 $('#submitFormButton').prop('disabled', false);
@@ -70,7 +70,7 @@ $(document).ready(function () {
 
         const tempWordList = [];
         const tempGridSize = $('#gridSize').val();
-        $('#wordList li').each(function () {
+        $('#wordList li span').each(function () {
             tempWordList.push($(this).text());
         });
 
