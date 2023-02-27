@@ -3,6 +3,7 @@
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <h2 class="text-center">Your word search</h2>
+@await Html.PartialAsync("_PartialGridView", Model.MasterCoordinates)
 
 <div class="container">
     <div class="row">

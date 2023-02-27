@@ -1,5 +1,13 @@
 ﻿@model WordSearchGenerator.Models.Grid
 
-@foreach(var item in @Model.MasterCoordinates) {
-
-}
+<table>
+    @foreach (var row in @Model.MasterCoordinates)
+    {
+        <tr>
+            @foreach (var col in row)
+            {
+                <td>@col</td>
+            }
+        </tr>
+    }
+</table>
