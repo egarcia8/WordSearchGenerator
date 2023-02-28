@@ -23,11 +23,12 @@
 </div>
 
 
-@*<script>
+<script>
     window.gridObj = {
         gridSize:  @Html.Raw(Json.Serialize(@Model.GridSize)),
         wordList: @Html.Raw(Json.Serialize(@Model.WordList)),
-</script>*@
+    }
+</script>
 
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="~/js/grid.js"></script>

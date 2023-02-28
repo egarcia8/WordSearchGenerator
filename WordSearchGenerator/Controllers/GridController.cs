@@ -90,9 +90,9 @@ namespace WordSearchGenerator.Controllers
                 }
             }
 
-
+            var shuffledWords = uppercaseWords.OrderBy(_ => rand.Next()).ToList();
             //Go through each word 
-            foreach (var word in uppercaseWords)
+            foreach (var word in shuffledWords)
             {
                 //Shuffle catalog
                 var shuffledListOfCoordinates = catalogMasterCoordinates.OrderBy(_ => rand.Next()).ToList();
