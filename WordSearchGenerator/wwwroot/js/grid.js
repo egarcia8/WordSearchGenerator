@@ -11,7 +11,7 @@ $(document).ready(function () {
             url: '/GetPartial',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(payload),
-            success: function (result) {
+            success: function (response) {
                 $('#partialGridView').html(response)
             }
         });
