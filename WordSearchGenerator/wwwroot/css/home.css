@@ -47,14 +47,27 @@ p {
     position: relative;
 }
 
+
+#wordList {
+    text-align: right;
+}
+
 #wordSpan {
    
     padding-right: 5px;
+    
    
 }
- /********Grid CSS*************/
 
-
+#deleteWordButton {
+    font-size: 8px;
+    padding: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    position: relative;
+    margin-left: 25px;
+}
+/********Grid CSS*************/
 /*#gridContainer {
     min-width: 1200px;
 }
