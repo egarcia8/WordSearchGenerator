@@ -1,8 +1,4 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-
+﻿
 $(document).ready(function () {
     
     jQuery.validator.addMethod('lettersonly', function (value, element) {
@@ -40,7 +36,7 @@ $(document).ready(function () {
 
             const wordLength = $('#userWords').val().length;
             if (wordLength <= size) {
-                $('#wordList').append('<li>' + word + '</li>');
+                $('#wordList').append('<li><span id="wordSpan">' + word + '</span><button type="button" class="btn btn-outline-danger btn-sm mb-2 mt-2" id="deleteWordButton">X</button></li>');
                 $('#userWords').val("");
                 $('#gridSize').prop('disabled', true);
                 $('#submitFormButton').prop('disabled', false);
@@ -53,12 +49,23 @@ $(document).ready(function () {
         }
     });
 
+    $(document).on('click', "#deleteWordButton", function (e) {
+        var entry = $(this).parent();
+        entry.remove();  //remove entry from list
+
+        var count = $('#wordList').children().length;
+        if (count < 1) {
+            $('#submitFormButton').prop('disabled', true);
+        }
+
+    });
+
     
     $('#submitFormButton').click(function () {
 
         const tempWordList = [];
         const tempGridSize = $('#gridSize').val();
-        $('#wordList li').each(function () {
+        $('#wordList li span').each(function () {
             tempWordList.push($(this).text());
         });
 

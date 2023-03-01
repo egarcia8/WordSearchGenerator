@@ -1,20 +1,23 @@
-html {
-  font-size: 14px;
-}
 
 @media (min-width: 768px) {
   html {
     font-size: 16px;
+    
   }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    font-size: 16px;
 }
 
 body {
   margin-bottom: 60px;
+}
+
+#gridSize {
+    max-width: 768px;
 }
 
 #createWordSearchForm label.error {
@@ -43,11 +46,18 @@ p {
     margin-bottom: 5px;
     position: relative;
 }
+
+#wordSpan {
+   
+    padding-right: 5px;
+   
+}
  /********Grid CSS*************/
 
-/*table {
-    border: 1px solid black;
-}*/
+
+#gridContainer {
+    min-width: 1200px;
+}
 
 td {
     border: 1px solid black;
@@ -61,5 +71,10 @@ td {
 }
 
 #wordList td {
+    border: none;
+    
+}
+
+#noFitList td {
     border: none;
 }

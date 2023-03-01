@@ -4,40 +4,15 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <h2 class="text-center">Your word search</h2>
 
-<div class="container">
-    <div class="row">
-        <table class="col" id="grid">
-          
-        </table>
-        <div class="col-md-auto">
-            <table id="wordList">
-                <tr>
-                    <th>Word List</th>
-                </tr>
-                <tr>
-                    <td>
-                        <ul class="list-unstyled" id="words">
-                          
-                        </ul>
-                    </td>
-                    
-                </tr>
-                    
-               
-            </table>
-        </div>
+
+
+
+<div class="container" id="gridContainer">
+    <div class="row" id="partialGridView">
+        @await Html.PartialAsync("_PartialGridView", Model)
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="text-center col-xs-2 mt-5">
-            <h5 id="noFitList">These words did not fit in your puzzle:</h5>
-            <ul class="list-unstyled" id="wordNoFit">
-                
-            </ul>
-        </div>
-    </div>
-</div>
+
 <div class="container">
      <div class="row">
             <div class="text-center col-xs-2 mt-5">
@@ -52,9 +27,6 @@
     window.gridObj = {
         gridSize:  @Html.Raw(Json.Serialize(@Model.GridSize)),
         wordList: @Html.Raw(Json.Serialize(@Model.WordList)),
-        masterCoordinates: @Html.Raw(Json.Serialize(@Model.MasterCoordinates)),
-        wordFit:  @Html.Raw(Json.Serialize(@Model.WordFit)),
-        wordNoFit: @Html.Raw(Json.Serialize(@Model.WordNoFit)),
     }
 </script>
 

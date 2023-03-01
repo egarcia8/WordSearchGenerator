@@ -27,6 +27,20 @@ namespace WordSearchGenerator.Controllers
         }
 
         /// <summary>
+        /// Rebuild grid and word lists
+        /// </summary>
+        /// <param name="gridSize"></param>
+        /// <param name="wordList"></param>
+        /// <returns></returns>
+        [HttpPost("GetPartial")]
+        //[FromBody] attribute used to specify that the value should be read from the body of the request
+        public ActionResult RegeneratePartial([FromBody] UserInput userInput)
+        {
+            var tempGrid = CreateGrid(userInput.Gridsize, userInput.WordList);
+            return PartialView("_PartialGridView", tempGrid);
+        }
+
+        /// <summary>
         /// Get sizeGrid and wordList to rebuild puzzle
         /// </summary>
         /// <param name="gridSize"></param>
@@ -34,7 +48,7 @@ namespace WordSearchGenerator.Controllers
         /// <returns></returns>
         [HttpPost("api/grid")]
         //[FromBody] attribute used to specify that the value should be read from the body of the request
-        public ActionResult Regenerate([FromBody]UserInput userInput)
+        public ActionResult GenerateGrid([FromBody]UserInput userInput)
         {
             var tempGrid = CreateGrid(userInput.Gridsize, userInput.WordList);
             return Ok(tempGrid);
@@ -76,9 +90,9 @@ namespace WordSearchGenerator.Controllers
                 }
             }
 
-
+            var shuffledWords = uppercaseWords.OrderBy(_ => rand.Next()).ToList();
             //Go through each word 
-            foreach (var word in uppercaseWords)
+            foreach (var word in shuffledWords)
             {
                 //Shuffle catalog
                 var shuffledListOfCoordinates = catalogMasterCoordinates.OrderBy(_ => rand.Next()).ToList();

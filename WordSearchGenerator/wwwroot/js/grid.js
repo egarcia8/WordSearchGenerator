@@ -7,55 +7,18 @@ $(document).ready(function () {
             wordList: window.gridObj.wordList
         }
         $.ajax({
-            type: "POST",
-            url: '/api/grid',            
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify(payload),  
-            dataType: "json",
-            success: function(result) {
-                createGrid(result.masterCoordinates);
-                createWordFitList(result.wordFit);
-                createWordNoFitList(result.wordNoFit);
+            type: 'POST',
+            url: '/GetPartial',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(payload),
+            success: function (response) {
+                $('#partialGridView').html(response)
             }
-        });  
-    })
+        });
+    });
 
     $('#goBackButton').click(function () {
         window.location.href = '/Home';
     });
 
-    function createGrid(gridCoordinates) {
-        $('#grid').empty();
-        gridCoordinates.forEach(function (row) {
-            const tr = $('<tr>');
-            row.forEach(function (col) {
-                $(tr).append('<td>' + col+ '</td>');  
-            })
-            $('#grid').append(tr)
-        });
-    }
-
-    function createWordFitList(wordFitList) {
-        $('#words').empty();
-        wordFitList.forEach(function (word) {
-            $('#words').append('<li>' + word + '</li>')
-        });
-    }
-
-    function createWordNoFitList(wordNoFitList) {
-        $('#wordNoFit').empty();
-        wordNoFitList.forEach(function (word) {
-            $('#wordNoFit').append('<li>' + word + '</li>')
-        });
-
-        var count = $('#wordNoFit').children().length;
-        if (count < 1) {
-            $('#noFitList').remove();
-        }
-    }
-
-    createGrid(window.gridObj.masterCoordinates);
-
-    createWordFitList(window.gridObj.wordFit);
-    createWordNoFitList(window.gridObj.wordNoFit);
-})
+});

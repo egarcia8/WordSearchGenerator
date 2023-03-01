@@ -1,0 +1,45 @@
+﻿@model WordSearchGenerator.Models.Grid
+
+
+<div class="container">
+    <div class="row">
+        <table class="col" id="grid">
+            @foreach (var row in @Model.MasterCoordinates)
+            {
+                <tr>
+                    @foreach (var col in row)
+                    {
+                        <td>@col</td>
+                    }
+                </tr>
+            }
+        </table>
+        <div class="col-md-auto">
+            <h5>Word List:</h5>
+            <table id="wordList">
+                <tr>
+                    <td>
+                        @await Html.PartialAsync("_PartialListView", Model.WordFit)
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+@if(Model.WordNoFit.Count > 0) 
+{
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-auto">
+                <h5 class="text-center">These words did not fit in your puzzle:</h5>
+                <table id="noFitList">
+                    <tr>
+                        <td>
+                            @await Html.PartialAsync("_PartialListView", Model.WordNoFit)
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+}
