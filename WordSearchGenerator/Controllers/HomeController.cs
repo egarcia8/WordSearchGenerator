@@ -27,7 +27,7 @@ namespace WordSearchGenerator.Controllers
         [HttpPost("api/userinput")]
         public IActionResult UserInput(UserInput userInput) 
         {
-            TempData["UserInput"] = JsonSerializer.Serialize(userInput);
+            TempData["UserInput"] = JsonSerializer.Serialize(userInput);            
             return Ok();
         }
 

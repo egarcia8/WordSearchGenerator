@@ -2,15 +2,16 @@
 
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
-<h2 class="text-center">Your word search</h2>
+<div>
+    <h2 class="row justify-content-center text-center">Your word search</h2>
+</div>
 
 
 
 
-<div class="container" id="gridContainer">
-    <div class="row" id="partialGridView">
-        @await Html.PartialAsync("_PartialGridView", Model)
-    </div>
+
+<div id="partialGridView">
+    @await Html.PartialAsync("_PartialGridView", Model)
 </div>
 
 <div class="container">

@@ -55,8 +55,12 @@ p {
  /********Grid CSS*************/
 
 
-#gridContainer {
+/*#gridContainer {
     min-width: 1200px;
+}
+*/
+#grid {
+    white-space: nowrap;
 }
 
 td {
@@ -70,11 +74,10 @@ td {
     white-space: nowrap;
 }
 
-#wordList td {
-    border: none;
-    
+#fitWordList {
+    color: blue;
 }
 
-#noFitList td {
-    border: none;
+#noFitWordList {
+    color: crimson;
 }
